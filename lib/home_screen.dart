@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final date = _formatter.format(_selectedDate);
 
     return Scaffold(
+      backgroundColor: Color(0x9BCBEEFF),
+
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -73,25 +75,40 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       children: [
                         Text(
-                          "Здохло: ${data[0]}",
+                          "Здохло: ${data[0]} 🐷",
                           style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Colors.red),
+                              color: Colors.black54,
+                              ),
                         ),
                         Text(
-                          "Згоріло: ${data[1]}",
+                          "Згоріло  танків: ${data[1]}",
                           style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Colors.red),
+                              color: Colors.black54),
                         ),
                         Text(
-                          "Згоріло: ${data[2]}",
+                          "Згоріло літаків 🛩: ${data[2]}",
                           style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Colors.red),
+                              color: Colors.black54),
+                        ),
+                        Text(
+                          "гелікоптери: ${data[3]}",
+                          style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
+                        ),
+                        Text(
+                          "артилерійська система: ${data[4]}",
+                          style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54),
                         ),
                       ],
                     ),
@@ -113,6 +130,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final personnel = json['data']['stats']['personnel_units'] as int;
     final tanks = json['data']['stats']['tanks'] as int;
     final planes = json['data']['stats']['planes'] as int;
-    return [personnel, tanks, planes];
+    final helicopters = json['data']['stats']['helicopters'] as int;
+    final  artillery_systems = json['data']['stats']['artillery_systems'] as int;
+
+    return [personnel, tanks, planes, helicopters, artillery_systems];
+
   }
 }
